@@ -6,7 +6,7 @@ import "erc721a/contracts/extensions/ERC721AQueryable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract KryptoPunks is ERC721AQueryable, Ownable {
+contract KingMirage is ERC721AQueryable, Ownable {
     using Strings for uint256;
 
     //--------------------------------------------------------------------
@@ -26,12 +26,12 @@ contract KryptoPunks is ERC721AQueryable, Ownable {
     //--------------------------------------------------------------------
     // ERRORS
 
-    error KryptoPunks__ContractIsPaused();
-    error KryptoPunks__NftSupplyLimitExceeded();
-    error KryptoPunks__InvalidMintAmount();
-    error KryptoPunks__MaxMintAmountExceeded();
-    error KryptoPunks__InsufficientFunds();
-    error KryptoPunks__QueryForNonExistentToken();
+    error KingMirage__ContractIsPaused();
+    error KingMirage__NftSupplyLimitExceeded();
+    error KingMirage__InvalidMintAmount();
+    error KingMirage__MaxMintAmountExceeded();
+    error KingMirage__InsufficientFunds();
+    error KingMirage__QueryForNonExistentToken();
 
     //--------------------------------------------------------------------
     // CONSTRUCTOR
@@ -50,17 +50,17 @@ contract KryptoPunks is ERC721AQueryable, Ownable {
     // MINT FUNCTIONS
 
     function mint(uint256 _mintAmount) external payable {
-        if (paused == 1) revert KryptoPunks__ContractIsPaused();
-        if (_mintAmount == 0) revert KryptoPunks__InvalidMintAmount();
+        if (paused == 1) revert KingMirage__ContractIsPaused();
+        if (_mintAmount == 0) revert KingMirage__InvalidMintAmount();
         if (_mintAmount > maxMintAmountPerTx)
-            revert KryptoPunks__MaxMintAmountExceeded();
+            revert KingMirage__MaxMintAmountExceeded();
         uint256 supply = totalSupply();
         if (supply + _mintAmount > maxSupply)
-            revert KryptoPunks__NftSupplyLimitExceeded();
+            revert KingMirage__NftSupplyLimitExceeded();
 
         if (msg.sender != owner()) {
             if (msg.value < cost * _mintAmount)
-                revert KryptoPunks__InsufficientFunds();
+                revert KingMirage__InsufficientFunds();
         }
 
         _safeMint(msg.sender, _mintAmount);
@@ -73,11 +73,9 @@ contract KryptoPunks is ERC721AQueryable, Ownable {
         cost = _newCost;
     }
 
-    function setMaxMintAmountPerTx(uint256 _newmaxMintAmount)
-        external
-        payable
-        onlyOwner
-    {
+    function setMaxMintAmountPerTx(
+        uint256 _newmaxMintAmount
+    ) external payable onlyOwner {
         maxMintAmountPerTx = _newmaxMintAmount;
     }
 
@@ -99,14 +97,10 @@ contract KryptoPunks is ERC721AQueryable, Ownable {
     //--------------------------------------------------------------------
     // VIEW FUNCTIONS
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        virtual
-        override
-        returns (string memory)
-    {
-        if (!_exists(tokenId)) revert KryptoPunks__QueryForNonExistentToken();
+    function tokenURI(
+        uint256 tokenId
+    ) public view virtual override returns (string memory) {
+        if (!_exists(tokenId)) revert KingMirage__QueryForNonExistentToken();
 
         string memory currentBaseURI = _baseURI();
         return

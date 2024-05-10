@@ -2,9 +2,9 @@
 
 <!-- ABOUT THE PROJECT -->
 
-# KryptoPunks NFT Staking Dapp
+# KingMirage NFT Staking Dapp
 
-This is a modern NFT project, the dapp allows users to mint their KryptoPunks NFT and stake them to receive staking rewards in the form of our own ERC20 token named  KryptoPunkToken (KPT).
+This is a modern NFT project, the dapp allows users to mint their KingMirage NFT and stake them to receive staking rewards in the form of our own ERC20 token named  KingMirageToken (KMT).
 
 <p align="center">
   <img alt="Dark" src="https://user-images.githubusercontent.com/83681204/185254772-40163a1d-3481-4519-b936-b5093c71e097.png" width="100%">
@@ -51,12 +51,12 @@ This is a modern NFT project, the dapp allows users to mint their KryptoPunks NF
 
 The contracts development and testing is done using the Hardhat framework in the smart_contracts folder, for this project there are 3 main contracts :
       <ul>
-       <li><b>KryptoPunks.sol :</b></li>
+       <li><b>KingMirage.sol :</b></li>
 This is the NFT collection contract, i used the ERC721A standard because it has lower gas usage for multiple NFT mint in the same transaction, the contract will allow user to mint items from the collection which are allowed to be staked in the NFT vault.
-       <li><b>KryptoPunksToken.sol :</b></li>
-The KryptoPunksToken or KPT is the ERC20 token used for distributing staking rewards, it's completly controlled by the stakingVault contract which is the only address allowed to mint new tokens to stakers.
+       <li><b>KingMirageToken.sol :</b></li>
+The KingMirageToken or KPT is the ERC20 token used for distributing staking rewards, it's completly controlled by the stakingVault contract which is the only address allowed to mint new tokens to stakers.
        <li><b>NFTStakingVault.sol :</b></li>
-The staking vault contract is at the center of this application, it allows users to stake their KryptoPunks items and calculate the KPT rewards accumulated for each item based on the staking period. When a user wants to unstake or claim the accrued rewards from his NFTs, the contract is responsible for minting the KPT tokens to the user by calling the KryptoPunksToken contract.
+The staking vault contract is at the center of this application, it allows users to stake their KingMirage items and calculate the KPT rewards accumulated for each item based on the staking period. When a user wants to unstake or claim the accrued rewards from his NFTs, the contract is responsible for minting the KPT tokens to the user by calling the KingMirageToken contract.
       </ul>
 
 <b>The architecture of the application</b> is illustrated in the diagram below :
@@ -65,7 +65,7 @@ The staking vault contract is at the center of this application, it allows users
 
 ### User interface
    
-The front end is built with React JS, it allows users to mint new KryptoPunks nfts and stake them in the vault for receiving KPT rewards over time, the app also give a simple admin dashboard for setting minting prices and maximum NFTs minted per tx.
+The front end is built with React JS, it allows users to mint new KingMirage nfts and stake them in the vault for receiving KPT rewards over time, the app also give a simple admin dashboard for setting minting prices and maximum NFTs minted per tx.
 
 The front-end is built using the following libraries:
       <ul>
@@ -75,11 +75,11 @@ The front-end is built using the following libraries:
         <li><b>Material UI:</b> used for react components and styles </li>    
       </ul>
       
-The home page is a modern NFT landing page that explains the KryptoPunks project and it's progression roadmap :
+The home page is a modern NFT landing page that explains the KingMirage project and it's progression roadmap :
 
 ![Capture d’écran 2022-08-17 à 22 36 18](https://user-images.githubusercontent.com/83681204/185249401-0c9ee430-3e8a-46d7-949f-48113f434ceb.png)
 
-The mint page allows user to mint new KryptoPunks and it contains all the information about the NFT collection (total supply, minting cost,...), and the details about the nfts held by the user (items owned, items staked, total reward accumulated,...).
+The mint page allows user to mint new KingMirage and it contains all the information about the NFT collection (total supply, minting cost,...), and the details about the nfts held by the user (items owned, items staked, total reward accumulated,...).
 
 ![Capture d’écran 2022-08-17 à 22 48 18](https://user-images.githubusercontent.com/83681204/185249853-36e1c15f-4f26-4aea-a060-604cb56cc52f.png)
 
@@ -105,8 +105,8 @@ Please install or have installed the following:
 
 Clone this repo with the command :
    ```sh
-   git clone https://github.com/kaymen99/KryptoPunks-nft-staking-dapp.git
-   cd KryptoPunks-nft-staking-dapp
+   git clone https://github.com/kaymen99/kingmirage-nft-staking-dapp.git
+   cd kingmirage-nft-staking-dapp
    ```
 
 ### Contracts

@@ -3,14 +3,14 @@
 pragma solidity 0.8.7;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
-import "./interfaces/IKryptoPunksToken.sol";
-import "./interfaces/IKryptoPunks.sol";
+import "./interfaces/IKingMirageToken.sol";
+import "./interfaces/IKingMirage.sol";
 
-/// @title the KryptoPunks NFT staking vault
+/// @title the KingMirage NFT staking vault
 /// @author kaymen99
-/// @notice this vault allwos users to stake their KryptoPunks tokens and earn daily rewards
-/// based on their overall staking period, the rewards are distributed in the form of our own ERC20 token 'KryptoPunksToken'
-/// @dev this contract must be set as controller in the 'KryptoPunksToken' contract to enable ERC20 rewards minting
+/// @notice this vault allwos users to stake their KingMirage tokens and earn daily rewards
+/// based on their overall staking period, the rewards are distributed in the form of our own ERC20 token 'KingMirageToken'
+/// @dev this contract must be set as controller in the 'KingMirageToken' contract to enable ERC20 rewards minting
 /// @dev the daily reward logic is hadcoded  based on predefined staking period (see _calculateReward) and cannot be changed after deployment
 contract NFTStakingVault is IERC721Receiver {
     // *********** //
@@ -21,8 +21,8 @@ contract NFTStakingVault is IERC721Receiver {
     uint256 public totalItemsStaked;
     uint256 private constant MONTH = 30 days;
 
-    IKryptoPunks immutable nft;
-    IKryptoPunksToken immutable token;
+    IKingMirage immutable nft;
+    IKingMirageToken immutable token;
 
     struct Stake {
         // packed to save gas
@@ -49,8 +49,8 @@ contract NFTStakingVault is IERC721Receiver {
     error NFTStakingVault__NotItemOwner();
 
     constructor(address _nftAddress, address _tokenAddress) {
-        nft = IKryptoPunks(_nftAddress);
-        token = IKryptoPunksToken(_tokenAddress);
+        nft = IKingMirage(_nftAddress);
+        token = IKingMirageToken(_tokenAddress);
     }
 
     // *********** //

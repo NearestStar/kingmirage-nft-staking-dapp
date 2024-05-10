@@ -1,22 +1,22 @@
 const { ethers } = require("hardhat");
 
-const developmentChains = ["hardhat", "localhost", "ganache"]
+const developmentChains = ["hardhat", "localhost", "ganache", "holesky"];
 
 function getAmountInWei(amount) {
-    return ethers.utils.parseEther(amount.toString(), "ether")
+  return ethers.utils.parseEther(amount.toString(), "ether");
 }
 function getAmountFromWei(amount) {
-    return Number(ethers.utils.formatUnits(amount.toString(), "ether"))
+  return Number(ethers.utils.formatUnits(amount.toString(), "ether"));
 }
 
 async function moveTime(period) {
-    await ethers.provider.send('evm_increaseTime', [period]);
-    await ethers.provider.send('evm_mine');
+  await ethers.provider.send("evm_increaseTime", [period]);
+  await ethers.provider.send("evm_mine");
 }
 
 module.exports = {
-    developmentChains,
-    getAmountFromWei,
-    getAmountInWei,
-    moveTime
-}
+  developmentChains,
+  getAmountFromWei,
+  getAmountInWei,
+  moveTime,
+};

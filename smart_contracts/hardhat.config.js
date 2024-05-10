@@ -23,23 +23,29 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY;
 const POLYGON_RPC_URL = process.env.POLYGON_RPC_URL;
 const MUMBAI_RPC_URL = process.env.MUMBAI_RPC_URL;
+const HOLESKY_RPC_URL = process.env.HOLESKY_RPC_URL;
 
 module.exports = {
   solidity: {
     compilers: [
       {
         version: "0.8.7",
-      }
+      },
     ],
   },
   networks: {
     hardhat: {
-      chainId: 31337
+      chainId: 31337,
     },
     ganache: {
       chainId: 1337,
       url: "http://127.0.0.1:7545",
-      accounts: [process.env.PRIVATE_KEY]
+      accounts: [process.env.PRIVATE_KEY],
+    },
+    holesky: {
+      chainId: 17000,
+      url: HOLESKY_RPC_URL,
+      accounts: [process.env.PRIVATE_KEY],
     },
     // mumbai: {
     //   url: MUMBAI_RPC_URL,
@@ -53,14 +59,14 @@ module.exports = {
     // }
   },
   paths: {
-    artifacts: "./artifacts"
+    artifacts: "./artifacts",
   },
   gasReporter: {
     enabled: true,
   },
   etherscan: {
     apiKey: {
-      rinkeby: POLYGONSCAN_API_KEY,
-    }
-  }
+      rinkeby: HOLESKY_RPC_URL,
+    },
+  },
 };

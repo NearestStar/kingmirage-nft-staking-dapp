@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
-contract KryptoPunksToken is ERC20, ERC20Burnable, Ownable {
+contract KingMirageToken is ERC20, ERC20Burnable, Ownable {
     //--------------------------------------------------------------------
     // VARIABLES
 
@@ -15,7 +15,7 @@ contract KryptoPunksToken is ERC20, ERC20Burnable, Ownable {
     //--------------------------------------------------------------------
     // ERRORS
 
-    error KryptoPunksToken__OnlyControllersCanMint();
+    error KingMirageToken__OnlyControllersCanMint();
 
     //--------------------------------------------------------------------
     // CONSTRUCTOR
@@ -27,7 +27,7 @@ contract KryptoPunksToken is ERC20, ERC20Burnable, Ownable {
 
     function mint(address to, uint256 amount) external {
         if (!controllers[msg.sender])
-            revert KryptoPunksToken__OnlyControllersCanMint();
+            revert KingMirageToken__OnlyControllersCanMint();
         _mint(to, amount);
     }
 
@@ -40,11 +40,10 @@ contract KryptoPunksToken is ERC20, ERC20Burnable, Ownable {
     //--------------------------------------------------------------------
     // OWNER FUNCTIONS
 
-    function setController(address controller, bool _state)
-        external
-        payable
-        onlyOwner
-    {
+    function setController(
+        address controller,
+        bool _state
+    ) external payable onlyOwner {
         controllers[controller] = _state;
     }
 }

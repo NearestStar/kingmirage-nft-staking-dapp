@@ -1,10 +1,9 @@
-import { Home, MintPage, Dashboard } from './pages'
+import { Home, MintPage, Dashboard } from "./pages";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

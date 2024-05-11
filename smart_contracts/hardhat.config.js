@@ -66,7 +66,7 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      rinkeby: HOLESKY_RPC_URL,
+      holesky: HOLESKY_RPC_URL,
     },
   },
 };

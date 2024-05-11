@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { combineReducers } from 'redux'
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { combineReducers } from "redux";
+import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import "cors";
 import blockchainReducer from "./features/blockchain";
 import {
   persistStore,
@@ -15,24 +16,22 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import { PersistGate } from 'redux-persist/integration/react';
-import App from './App';
-
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { PersistGate } from "redux-persist/integration/react";
+import App from "./App";
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1,
   storage,
-}
+};
 
 const rootReducer = combineReducers({
-  blockchain: blockchainReducer
-})
+  blockchain: blockchainReducer,
+});
 
-
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -42,9 +41,9 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-})
+});
 
-let persistor = persistStore(store)
+let persistor = persistStore(store);
 
 ReactDOM.render(
   <React.StrictMode>
@@ -54,7 +53,7 @@ ReactDOM.render(
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 reportWebVitals();

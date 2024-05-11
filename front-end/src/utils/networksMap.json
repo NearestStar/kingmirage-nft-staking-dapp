@@ -1,10 +1,11 @@
 {
-    "1": "Ethereum Mainnet",
-    "4": "rinkeby",
-    "42": "kovan",
-    "3": "ropsten",
-    "1337": "Ganache",
-    "80001": "Polygon Testnet",
-    "137": "Polygon Mainnet",
-    "56": "BSC"
+  "1": "Ethereum Mainnet",
+  "3": "ropsten",
+  "4": "rinkeby",
+  "42": "kovan",
+  "56": "BSC",
+  "137": "Polygon Mainnet",
+  "1337": "Ganache",
+  "17000": "holesky",
+  "80001": "Polygon Testnet"
 }

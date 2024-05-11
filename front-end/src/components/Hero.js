@@ -18,7 +18,7 @@ function Hero() {
             </button>
           </a>
           <a
-            href="https://github.com/kaymen99/kingmirage-nft-staking-dapp"
+            href="https://github.com/NearestStar/kingmirage-nft-staking-dapp"
             target="_blank"
             rel="noreferrer"
           >

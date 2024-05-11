@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "../assets/styles.css";
-import image1 from "../assets/img/mint-punk.png";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { useSelector } from "react-redux";
 import { ethers } from "ethers";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import { CircularProgress } from "@mui/material";
 
+import "../assets/styles.css";
+import image1 from "../assets/img/mint-punk.png";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import stakingContract from "../artifacts/NFTStakingVault.sol/NFTStakingVault.json";
 import nftContract from "../artifacts/KingMirage.sol/KingMirage.json";
 import {
@@ -109,7 +109,7 @@ function MintPage() {
   };
 
   const mint = async () => {
-    if (data.network === networksMap[networkDeployedTo] && info.paused == 2) {
+    if (data.network === networksMap[networkDeployedTo] && info.paused === 2) {
       try {
         setLoading(true);
         const provider = new ethers.providers.Web3Provider(
@@ -414,12 +414,11 @@ function MintPage() {
               {userNfts.map((nft, index) => {
                 return (
                   <div className="item-box" key={index}>
-                    <img src={nft.uri} className="item-img" />
+                    <img src={nft.uri} alt="nft" className="item-img" />
                     <div className="text-center">
                       {info.stakedNftIds.includes(nft.id) ? (
                         <button
                           className="btn btn-info m-3"
-                          role="button"
                           onClick={() => {
                             unstakeItem(nft.id);
                           }}
@@ -433,7 +432,6 @@ function MintPage() {
                       ) : (
                         <button
                           className="btn btn-info m-3"
-                          role="button"
                           onClick={() => {
                             stakeItem(nft.id);
                           }}

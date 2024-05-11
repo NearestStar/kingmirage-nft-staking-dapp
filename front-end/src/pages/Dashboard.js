@@ -145,7 +145,7 @@ const Dashboard = () => {
 
   async function changeContractState() {
     if (data.network === networksMap[networkDeployedTo]) {
-      if (appInfo.nftContractPaused == 1) {
+      if (appInfo.nftContractPaused === 1) {
         try {
           setLoading(true);
           const provider = new ethers.providers.Web3Provider(
@@ -277,14 +277,14 @@ const Dashboard = () => {
             <div className="dashboard-row">
               <div className="dashboard-left">
                 <label>
-                  {appInfo.nftContractPaused == 1
+                  {appInfo.nftContractPaused === 1
                     ? "Nft Contract is paused"
                     : "Nft Contract is active"}
                 </label>
               </div>
               <div className="dashboard-button-up">
                 <button className="btn btn-info" onClick={changeContractState}>
-                  {appInfo.nftContractPaused == 1 ? (
+                  {appInfo.nftContractPaused === 1 ? (
                     loading ? (
                       <CircularProgress color="inherit" size={18} />
                     ) : (
